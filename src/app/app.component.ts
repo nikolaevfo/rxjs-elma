@@ -350,6 +350,25 @@ export class AppComponent implements OnInit {
         // });
 
 
+        //  проверки разницы между combineLatestWith и withLatestFrom ============================
+        // const sourceA = interval(3000).pipe(map((data) => `SourceA ${data}`));
+        // const sourceB = interval(1000).pipe(map((data) => `SourceB ${data}`));
+        // const timer$ = timer(30000);
+
+        // sourceA.pipe(
+        //     combineLatestWith([sourceB]),
+        //     takeUntil(timer$),
+        // ).subscribe(([src1, src2]) => {
+        //     console.log(src1, src2)
+        // })
+
+        // sourceA.pipe(
+        //     withLatestFrom(sourceB),
+        //     takeUntil(timer$)
+        // ).subscribe(([src1, src2]) => {
+        //     console.log(src1, src2)
+        // })
+
 
         // Observables высшего порядка ===================================================
         // const stream$ = interval(500).pipe(
