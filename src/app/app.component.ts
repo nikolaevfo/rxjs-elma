@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { asapScheduler, asyncScheduler, AsyncSubject, BehaviorSubject, catchError, combineLatest, combineLatestWith, concatMap, debounceTime, distinctUntilChanged, EMPTY, exhaustMap, filter, from, fromEvent, interval, map, mergeAll, mergeMap, NEVER, Observable, observeOn, of, OperatorFunction, pipe, ReplaySubject, retry, scheduled, startWith, Subject, subscribeOn, Subscriber, switchMap, take, takeUntil, takeWhile, tap, throwError, timer, withLatestFrom, zip } from 'rxjs';
+import { asapScheduler, asyncScheduler, AsyncSubject, BehaviorSubject, catchError, combineLatest, combineLatestWith, concatMap, debounceTime, distinctUntilChanged, EMPTY, exhaustMap, filter, from, fromEvent, interval, map, mergeAll, mergeMap, NEVER, Observable, observeOn, of, OperatorFunction, pipe, ReplaySubject, retry, scheduled, startWith, Subject, subscribeOn, Subscriber, switchMap, take, takeUntil, takeWhile, tap, throwError, timer, withLatestFrom, zip, zipWith } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -328,10 +328,9 @@ export class AppComponent implements OnInit {
         //     down$: Observable<MouseEvent>,
         //     up$: Observable<MouseEvent>,
         // ) {
-        //     return zip(
-        //         down$.pipe(map(getXPosition)),
-        //         up$.pipe(map(getXPosition)),
-        //     ).pipe(
+        //     return up$.pipe(
+        //         map(getXPosition),
+        //         zipWith(down$.pipe(map(getXPosition))),
         //         map(([downPosition, upPosition]) => downPosition - upPosition),
         //         filter(diff => Math.abs(diff) > 30),
         //     )
