@@ -385,9 +385,15 @@ export class AppComponent implements OnInit {
 
         // mergeMap
         // const stream$ = interval(500).pipe(
-        //     mergeMap(() => interval(1000)),
+        //     mergeMap((index) => {
+        //         return interval(1000).pipe(
+        //             tap((value) => {
+        //                 console.log(`Посетитель ${index} - напиток ${value}`)
+        //             })
+        //         )
+        //     }),
         // );
-        // stream$.subscribe(console.log);
+        // stream$.subscribe();
 
         //  concurrent
         // const stream$ = interval(500).pipe(
