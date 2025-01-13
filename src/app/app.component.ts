@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { asapScheduler, asyncScheduler, AsyncSubject, BehaviorSubject, catchError, combineLatest, combineLatestWith, concatMap, debounceTime, distinctUntilChanged, EMPTY, exhaustMap, filter, from, fromEvent, interval, map, mergeAll, mergeMap, NEVER, Observable, observeOn, of, OperatorFunction, pipe, ReplaySubject, retry, scheduled, startWith, Subject, subscribeOn, Subscriber, switchMap, take, takeUntil, takeWhile, tap, throwError, timer, withLatestFrom, zip, zipWith } from 'rxjs';
+import { asapScheduler, asyncScheduler, AsyncSubject, BehaviorSubject, catchError, combineLatest, combineLatestWith, concatMap, debounceTime, distinctUntilChanged, EMPTY, exhaustMap, filter, from, fromEvent, interval, map, mergeAll, mergeMap, NEVER, Observable, observeOn, of, OperatorFunction, pipe, ReplaySubject, retry, scheduled, share, startWith, Subject, subscribeOn, Subscriber, switchMap, take, takeUntil, takeWhile, tap, throwError, timer, withLatestFrom, zip, zipWith } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -537,15 +537,20 @@ export class AppComponent implements OnInit {
         //     subscriber.error('Error!');
         // })
         //     .pipe(
-        //         catchError(error => {
-        //             console.log(error);
-        //             return of(null);
+        //         // tap((value) => {
+        //         //     console.log(value)
+        //         // }, (error) => {
+        //         //     console.log(error)
+        //         // }),
+        //         // catchError(error => {
+        //         //     console.log(error);
+        //         //     return of(null);
 
         //             // return EMPTY;
         //             // return interval(1000);
         //             // return NEVER;
         //             // return throwError(() => new Error('Need retry'));
-        //         }),
+        //         // }),
         //         // retry({
         //         //     count: 3,
         //         //     delay: 3000,
@@ -604,6 +609,19 @@ export class AppComponent implements OnInit {
         //         console.log(`Subcribe 3 - ${value}`)
         //     })
         // }, 6000);
+
+
+
+        // Пара слов про мультикастинг ==========================================================
+        // const counter = interval(1000).pipe(
+        //     share()
+        // )
+
+        // counter.subscribe(console.log)
+
+        // setTimeout(() => {
+        //     counter.subscribe(console.log)
+        // }, 2000)
 
 
 
